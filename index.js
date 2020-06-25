@@ -1,12 +1,3 @@
-// delete items from ul and DOM
-function deleteItem() {
-  $(this).closest('li').remove();
-}
-// mark items as completed
-function completedItem (){
-$(this).closest('li').find('.shopping-item').toggleClass('shopping-item__checked');
-};
-
 // adds items to ul
 $(function(){
   $('#js-shopping-list-form').submit(function(event) {
@@ -33,6 +24,20 @@ $(function(){
 
 });
 
+// delete items from ul and DOM
+function deleteItem() {
+  $(this).closest('li').remove();
+}
+// mark items as completed
+function completedItem (){
+$(this).closest('li').find('.shopping-item').toggleClass('shopping-item__checked');
+};
 
-$(".shopping-item-delete").click(deleteItem);
-$(".shopping-item-toggle").click(completedItem);
+
+$('.shopping-list').on('click', '.shopping-item-delete', deleteItem);
+// $(".shopping-list").on("click", ".shopping-item-toggle", "completedItem");
+// $('ul').on('click', '.shopping-item-delete', "deleteitem");
+// $(".shopping-item-delete").click(deleteItem);
+// $(".shopping-item-toggle").click(completedItem);
+$('.shopping-list').on('click', '.shopping-item-toggle', completedItem);
+$('.shopping-list').on('click', '.shopping-item-delete', deleteItem);
